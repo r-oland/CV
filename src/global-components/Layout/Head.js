@@ -22,6 +22,7 @@ export default function Head({ title, description, keywords }) {
   return (
     <Helmet>
       <meta name="theme-color" content="#FFFFFF" />
+      <meta name="robots" content="noindex,nofollow"></meta>
       <meta name="author" content="Roland Branten"></meta>
       <title>{`${siteTitle} | ${title}`}</title>
       <html lang={intl.locale} />
