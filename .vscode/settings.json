@@ -35,5 +35,6 @@
       "icon": "component",
       "extensions": ["single-components"]
     }
-  ]
+  ],
+  "cSpell.language": "nl, en"
 }

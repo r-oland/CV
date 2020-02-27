@@ -1,16 +1,13 @@
 // Components==============
 import { createGlobalStyle } from "styled-components";
-import woff300 from "../assets/fonts/raleway-v14-latin-300.woff";
-import woff2_300 from "../assets/fonts/raleway-v14-latin-300.woff2";
-import woff500 from "../assets/fonts/raleway-v14-latin-500.woff";
-import woff2_500 from "../assets/fonts/raleway-v14-latin-500.woff2";
-import woff600 from "../assets/fonts/raleway-v14-latin-600.woff";
-import woff2_600 from "../assets/fonts/raleway-v14-latin-600.woff2";
-import woff700 from "../assets/fonts/raleway-v14-latin-700.woff";
-import woff2_700 from "../assets/fonts/raleway-v14-latin-700.woff2";
-import regular from "../assets/fonts/raleway-v14-latin-regular.woff";
-import regular2 from "../assets/fonts/raleway-v14-latin-regular.woff2";
-import { flexUnit } from "./Mixins";
+import woff_500 from "../assets/fonts/poppins-v9-latin-500.woff";
+import woff2_500 from "../assets/fonts/poppins-v9-latin-500.woff2";
+import woff_600 from "../assets/fonts/poppins-v9-latin-600.woff";
+import woff2_600 from "../assets/fonts/poppins-v9-latin-600.woff2";
+import woff700 from "../assets/fonts/poppins-v9-latin-700.woff";
+import woff2_700 from "../assets/fonts/poppins-v9-latin-700.woff2";
+import woff_reg from "../assets/fonts/poppins-v9-latin-regular.woff";
+import woff2_reg from "../assets/fonts/poppins-v9-latin-regular.woff2";
 // =========================
 
 const GlobalStyles = createGlobalStyle`
@@ -19,91 +16,94 @@ const GlobalStyles = createGlobalStyle`
    /* Global style ============================*/
    /* =========================================*/
    
+   .photo, .title{
+      visibility: visible;
+      cursor: initial;
+   }
+
    html {
-      font-family: Raleway;
+      font-family: poppins;
       background-color: ${({ theme: { gray } }) => gray.s1};
-      height: 100%
+      height: 100%;
+
+      input, select, textarea, label{
+         font-family: poppins;
+         font-size: 14px;
+      }
    }
 
    body {
-      color: ${({ theme: { black } }) => black};
-      min-height: 100%;
-      display: flex;
-      flex-direction: column
+      color: ${({ theme: { gray } }) => gray.s9};
+      height: 100%;
+   }
+
+   #___gatsby {
+      height: 100%;
+   }
+
+   #gatsby-focus-wrapper {
+      height: 100%;
+   }
+
+   svg{
+      display: block;
    }
 
    /* =========================================*/
    /* Font ====================================*/
    /* =========================================*/
 
-    /* raleway-300 - latin */
-    @font-face {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 300;
-   src: local('Raleway Light'), local('Raleway-Light'),
-   url('${woff2_300}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-   url('${woff300}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-   }
-   /* raleway-regular - latin */
-   @font-face {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 400;
-   src: local('Raleway'), local('Raleway-Regular'),
-         url('${regular2}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('${regular}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-   }
-   /* raleway-500 - latin */
-   @font-face {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 500;
-   src: local('Raleway Medium'), local('Raleway-Medium'),
-         url('${woff2_500}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('${woff500}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-   }
-   /* raleway-600 - latin */
-   @font-face {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 600;
-   src: local('Raleway SemiBold'), local('Raleway-SemiBold'),
-         url('${woff2_600}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('${woff600}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-   }
-   /* raleway-700 - latin */
-   @font-face {
-   font-family: 'Raleway';
-   font-style: normal;
-   font-weight: 700;
-   src: local('Raleway Bold'), local('Raleway-Bold'),
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+       url('${woff2_reg}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('${woff_reg}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* poppins-500 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+       url('${woff2_500}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('${woff_500}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* poppins-600 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Poppins SemiBold'), local('Poppins-SemiBold'),
+       url('${woff2_600}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('${woff_600}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* poppins-700 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Poppins Bold'), local('Poppins-Bold'),
          url('${woff2_700}') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
          url('${woff700}') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-   }
+}
+
 
    h1 {
-      ${flexUnit(4, 32, 55, "vw", "font-size")}
+      font-size: 29px;
    }
 
    h2 {
-      ${flexUnit(3, 24, 34, "vw", "font-size")}
+      font-size: 25px;
    }
 
    h3 {
-      ${flexUnit(2, 20, 25, "vw", "font-size")}
-   }
-
-   h4 {
-      ${flexUnit(2, 20, 25, "vw", "font-size")}
-   }
-
-   h5 {
-      ${flexUnit(2, 20, 25, "vw", "font-size")}
-   }
-
-   h6 {
-      ${flexUnit(2, 20, 25, "vw", "font-size")}
+      font-size: 20px;
    }
 
    p,
@@ -112,7 +112,7 @@ const GlobalStyles = createGlobalStyle`
    span, 
    li
     {
-      ${flexUnit(2.5, 16, 17, "vw", "font-size")}
+      font-size: 16px;
    }
 
    /* =========================================*/
@@ -147,19 +147,22 @@ const GlobalStyles = createGlobalStyle`
    ul,
    ol,
    dl,
-   address {
+   address,
+   button
+    {
       line-height: ${({ theme }) => theme.lineHeight.s3};
       padding: 0;
    }
 
    button {
       background: none;
-      color: inherit;
+      color: ${({ theme: { black } }) => black};
       border: none;
       padding: 0;
-      font: inherit;
       cursor: pointer;
-      outline: inherit
+      font-family: inherit;
+      outline: inherit;
+      font-size: 16px;
    }
 
    pre {

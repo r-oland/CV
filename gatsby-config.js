@@ -3,23 +3,38 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: `New project`,
+    title: `CV`,
     description: `undefined`,
     author: `Roland Branten`
-    //siteUrl: ``,
   },
   plugins: [
-    // `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    "gatsby-transformer-json",
     `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
         path: `${__dirname}/src/assets`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/data/intl`,
+        languages: [`en`, `nl`],
+        defaultLanguage: `en`,
+        redirect: true
       }
     },
     {
@@ -32,13 +47,20 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `new`,
-        short_name: `new`,
+        name: `CV Roland Branten`,
+        short_name: `CV Roland`,
+        lang: `en`,
         start_url: `/`,
-        background_color: `#fbf4ea`,
-        theme_color: `#fbf4ea`,
+        background_color: `#FFC719`,
+        theme_color: `#FFFFFF`,
         display: `standalone`,
-        icon: `icon/icon.png`
+        icon: `icon/icon.png`,
+        localize: [
+          {
+            start_url: `/nl/`,
+            lang: `nl`
+          }
+        ]
       }
     },
     `gatsby-plugin-offline`,
@@ -50,19 +72,5 @@ module.exports = {
         }
       }
     }
-    //   {
-    //     resolve: `gatsby-source-contentful`,
-    //     options: {
-    //        spaceId: process.env.CONTENTFUL_SPACE_ID,
-    //        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //        host: process.env.CONTENTFUL_HOST
-    //     }
-    //  },
-    // {
-    //    resolve: `gatsby-plugin-google-analytics`,
-    //    options: {
-    //       trackingId: "XX-XXXXXXXX-X"
-    //    }
-    // }
   ]
 };

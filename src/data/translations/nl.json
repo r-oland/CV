@@ -1,0 +1,78 @@
+{
+  "titles": [
+    {
+      "work": "WERK ERVARING",
+      "education": "OPLEIDINGEN",
+      "language": "TAAL",
+      "devSkills": "DEV VAARDIGHEDEN",
+      "designSkills": "DESIGN VAARDIGHEDEN",
+      "aboutMe": "OVER MIJ"
+    }
+  ],
+  "work": [
+    {
+      "company": "Decathlon",
+      "function": "VERKOPER",
+      "year": "2015 - 2016",
+      "place": "Best"
+    },
+    {
+      "company": "Keymusic",
+      "function": "VERKOPER",
+      "year": "2015 - 2016",
+      "place": "Eindhoven"
+    },
+    {
+      "company": "TheSalesUnit",
+      "function": "TEAM LEADER",
+      "year": "2017 - 2018",
+      "place": "Eindhoven"
+    },
+    {
+      "company": "Plus DRP",
+      "function": "TEAM MANAGER",
+      "year": "2017 - 2018",
+      "place": "Tilburg"
+    },
+    {
+      "company": "Freelance",
+      "function": "DEVELOPER & DESIGNER",
+      "year": "2019 - HEDEN",
+      "place": ""
+    }
+  ],
+
+  "education": [
+    {
+      "school": "De Rooi Pannen",
+      "level": "MBO",
+      "year": "2015-2018",
+      "place": "Tilburg",
+      "education": "ONDERNEMER DETAILHANDEL"
+    },
+    {
+      "school": "Fontys",
+      "level": "HBO",
+      "year": "2018-2019",
+      "place": "Tilburg",
+      "education": "PROPEDEUSE DIGITAL BUSINESS CONCEPTS"
+    }
+  ],
+  "language": [
+    {
+      "dutch": "Nederlands",
+      "english": "Engels"
+    }
+  ],
+  "aboutMe": [
+    {
+      "text": "Ik ben een developer & designer uit Eindhoven die toffe projecten op het web wil ontwikkelen. Momenteel ligt mijn primaire focus op het ontwikkelen van front-end JAMstack sites met React.js."
+    },
+    {
+      "text": "Ik sta er echter altijd voor open en vind het leuk om mijn kennisbank uit te breiden door nieuwe technologieën te leren!"
+    },
+    {
+      "text": "Naast mijn passie voor het web, heb ik een grote passie voor muziek, ik blijf graag fit en over het algemeen geniet ik gewoon van mensen!"
+    }
+  ]
+}

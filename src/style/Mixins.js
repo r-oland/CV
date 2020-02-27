@@ -1,49 +1,12 @@
 import styled from "styled-components";
 
-// FLex unit
-
-export function flexUnit(amount, min, max, unit = "vw", prop = "font-size") {
-  const minBreakpoint = (min / amount) * 100;
-  const maxBreakpoint = max ? (max / amount) * 100 : false;
-  const dimension = unit === "vw" ? "width" : "height";
-
-  return `
-     @media (max-${dimension}: ${minBreakpoint}px) {
-       ${prop}: ${min}px;
-     }
- 
-     ${
-       max
-         ? `
-       @media (min-${dimension}: ${maxBreakpoint}px) {
-         ${prop}: ${max}px;
-       }
-     `
-         : ""
-     }
- 
-     ${prop}: ${amount}${unit}
-   `;
-}
-
-// overflow fix
-
-export const OverFlowFix = styled.div`
-  overflow: hidden;
-  position: relative;
-`;
-
 // Container
 
 export const Container = styled.div`
-  margin: 0 2.5%;
+  margin: 0 2%;
 
-  @media screen and (min-width: 768px) {
-    margin: 0 5%;
-  }
-
-  @media screen and (min-width: 1200px) {
-    margin: 0 7.5%;
+  @media screen and (min-width: 1600px) {
+    margin: 0 8%;
   }
 `;
 
@@ -54,20 +17,20 @@ export const Xs = styled.p`
 `;
 
 export const S = styled.p`
-  ${flexUnit(2.5, 15, 16, "vw", "font-size")}
+  font-size: 15px;
 `;
 
 export const M = styled.p`
-  ${flexUnit(2.5, 16, 17, "vw", "font-size")}
+  font-size: 16px;
 `;
 
 export const L = styled.p`
-  ${flexUnit(2.5, 18, 19, "vw", "font-size")}
+  font-size: 17px;
 `;
 
 // styled underline
 
-export const StyledUnderline = styled.span`
+export const StyledUnderline = styled.a`
   cursor: pointer;
   border-bottom: 1px solid
     ${({ theme: { primary } }) => primary.s4.replace("1)", "0.3)")};
