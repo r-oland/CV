@@ -41,6 +41,7 @@ const FoldText = styled.h3`
 `;
 
 const Visibility = styled.div`
+  height: 100%;
   visibility: ${({ folded }) => (folded ? `visible` : `hidden`)};
 
   @media screen and (min-width: 720px) {

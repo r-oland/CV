@@ -6,7 +6,7 @@ import Wrapper from "../single-components/Wrapper";
 // =========================
 
 const IMG = styled(Img)`
-  height: 105%;
+  height: 100%;
 `;
 
 export default function Photo({ photo }) {
