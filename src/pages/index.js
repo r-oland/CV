@@ -20,10 +20,6 @@ const Grid = styled.div`
   grid-gap: 12px;
   justify-content: center;
 
-  @media screen and (min-width: 400px) {
-    grid-template-columns: repeat(auto-fill, 334px);
-  }
-
   @media screen and (min-width: 720px) {
     grid-template-areas:
       "Title About"

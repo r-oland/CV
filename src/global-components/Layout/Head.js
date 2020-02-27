@@ -5,7 +5,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 // =========================
 
-export default function Head({ title, description, keywords }) {
+export default function Head({ title }) {
   const data = useStaticQuery(graphql`
     query MyQuery {
       site {
