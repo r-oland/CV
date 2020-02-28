@@ -38,6 +38,9 @@ const FoldText = styled.h3`
   transform: translate(-50%, -50%);
   visibility: ${({ folded }) => (folded ? `hidden` : `visible`)};
   color: ${({ color }) => (color === `rgba(43, 43, 43, 1)` ? `white` : ``)};
+  @media screen and (min-width: 720px) {
+    display: none;
+  }
 `;
 
 const Visibility = styled.div`
