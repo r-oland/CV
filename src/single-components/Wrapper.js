@@ -102,7 +102,7 @@ export default function Wrapper({
       variants={variants()}
       initial={false}
       onClick={() => {
-        if (query.matches === false) {
+        if (query.matches === false && folded === false) {
           folded ? setFolded(false) : setFolded(true);
         }
       }}
