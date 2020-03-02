@@ -18,6 +18,7 @@ const Wrap = styled(motion.div)`
   cursor: ${({ folded }) => (folded ? `initial` : `pointer`)};
   @media screen and (min-width: 720px) {
     grid-area: ${({ gridArea }) => gridArea};
+    width: 334px;
   }
 
   @media screen and (min-width: 360px) {
@@ -96,7 +97,7 @@ export default function Wrapper({
       padding={padding}
       size={size}
       folded={folded}
-      whileHover={query.matches ? { scale: 1.05, zIndex: 5 } : { scale: 1 }}
+      whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
       animate={folded ? "unFolded" : "folded"}
       transition={{
         damping: 10,
