@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gatsby build",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -H 192.168.2.146 ",
     "develop": "gatsby develop -H 192.168.2.146 --https",
     "local": "gatsby develop -H 192.168.56.1 -p 8001 --https",
     "mobile": "gatsby develop -H 192.168.43.132 -p 8001 --https",
