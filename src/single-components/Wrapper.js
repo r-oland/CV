@@ -87,6 +87,12 @@ export default function Wrapper({
     window.addEventListener(`resize`, () => {
       setFolded(query.matches);
     });
+
+    return () => {
+      window.removeEventListener(`resize`, () => {
+        setFolded(query.matches);
+      });
+    };
   }, [query.matches]);
 
   return (
