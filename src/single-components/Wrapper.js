@@ -103,7 +103,7 @@ export default function Wrapper({
       padding={padding}
       size={size}
       folded={folded}
-      // whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
+      whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
       animate={folded ? "unFolded" : "folded"}
       transition={{
         damping: 10,
