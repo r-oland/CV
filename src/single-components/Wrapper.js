@@ -1,6 +1,6 @@
 // Components==============
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // =========================
 
@@ -83,11 +83,11 @@ export default function Wrapper({
 
   const [folded, setFolded] = useState(query.matches);
 
-  useEffect(() => {
-    window.addEventListener(`resize`, () => {
-      setFolded(query.matches);
-    });
-  }, [folded, query.matches]);
+  // useEffect(() => {
+  //   window.addEventListener(`resize`, () => {
+  //     setFolded(query.matches);
+  //   });
+  // }, [folded, query.matches]);
 
   return (
     <Wrap
@@ -97,7 +97,7 @@ export default function Wrapper({
       padding={padding}
       size={size}
       folded={folded}
-      whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
+      // whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
       animate={folded ? "unFolded" : "folded"}
       transition={{
         damping: 10,
