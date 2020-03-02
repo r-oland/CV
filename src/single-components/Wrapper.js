@@ -1,6 +1,6 @@
 // Components==============
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // =========================
 
@@ -83,11 +83,11 @@ export default function Wrapper({
 
   const [folded, setFolded] = useState(query.matches);
 
-  // useEffect(() => {
-  //   window.addEventListener(`resize`, () => {
-  //     setFolded(query.matches);
-  //   });
-  // }, [folded, query.matches]);
+  useEffect(() => {
+    window.addEventListener(`resize`, () => {
+      setFolded(query.matches);
+    });
+  }, [query.matches]);
 
   return (
     <Wrap
