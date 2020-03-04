@@ -29,7 +29,7 @@
     "gatsby-plugin-sharp": "^2.4.5",
     "gatsby-plugin-styled-components": "^3.1.19",
     "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-source-prismic-graphql": "^3.4.1-alpha.0",
+    "gatsby-source-prismic-graphql": "^3.4.0-beta.2",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-sharp": "^2.3.14",
     "prismic-reactjs": "^1.2.0",
