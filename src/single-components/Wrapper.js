@@ -79,7 +79,7 @@ export default function Wrapper({
   };
 
   const query =
-    typeof window !== "undefined" && window.matchMedia("(min-width: 720px)");
+    typeof window !== "undefined" && window.matchMedia(`(min-width: 720px)`);
 
   const [folded, setFolded] = useState(query.matches);
 
