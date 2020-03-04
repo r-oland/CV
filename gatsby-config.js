@@ -71,18 +71,18 @@ module.exports = {
           include: /\.inline\.svg$/
         }
       }
+    },
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "cvrolandbranten", // required
+        defaultLang: "en-us", // optional, but recommended
+        // langs: ["en-us", "nl-nl"],
+        accessToken:
+          "MC5YbC1KNmhNQUFDTUFLQWo0.77-977-9De-_vXfvv73vv73vv71QHO-_vRrvv71hU--_vSYJBO-_ve-_vVpy77-977-977-9Ve-_vSdX77-9BA",
+        path: "/preview", // optional, default: /preview
+        previews: true // optional, default: false
+      }
     }
-    // {
-    //   resolve: "gatsby-source-prismic-graphql",
-    //   options: {
-    //     repositoryName: "cvrolandbranten", // required
-    //     defaultLang: "en-us", // optional, but recommended
-    //     // langs: ["en-us", "nl-nl"],
-    //     accessToken:
-    //       "MC5YbC1KNmhNQUFDTUFLQWo0.77-977-9De-_vXfvv73vv73vv71QHO-_vRrvv71hU--_vSYJBO-_ve-_vVpy77-977-977-9Ve-_vSdX77-9BA",
-    //     path: "/preview", // optional, default: /preview
-    //     previews: true // optional, default: false
-    //   }
-    // }
   ]
 };
