@@ -7,7 +7,7 @@
     ".env": true,
     ".gitignore": true,
     "desktop.ini": true,
-    // "gatsby-config.js": true,
+    "gatsby-config.js": true,
     "package-lock.json": true,
     "package.json": true,
     "jsconfig.json": true
