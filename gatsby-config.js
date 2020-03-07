@@ -79,8 +79,8 @@ module.exports = {
         dataset: "production",
         token: process.env.SANITY_TOKEN,
         graphqlTag: "default",
-        watchMode: true,
-        overlayDrafts: true
+        watchMode: false,
+        overlayDrafts: false
       }
     }
   ]
