@@ -60,7 +60,7 @@ const Grid = styled.div`
 
 export default function Index({ data }) {
   const intl = useIntl();
-  const lang = intl.locale;
+  const lang = intl.locale || "en";
 
   const education = data.sanityEducation;
   const about = data.sanityAbout;
