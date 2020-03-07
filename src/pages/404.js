@@ -24,7 +24,7 @@ export default function NotFound() {
     <Layout>
       <Head title="404 NOT FOUND" />
       <Container404>
-        <h2>I could not find what you where looking for.</h2>
+        <h2>I could not find what you where looking for...</h2>
         {/* eslint-disable-next-line */}
         <Smiley>😟</Smiley>
       </Container404>
