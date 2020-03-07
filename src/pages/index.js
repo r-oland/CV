@@ -60,7 +60,7 @@ const Grid = styled.div`
 
 export default function Index({ data }) {
   const intl = useIntl();
-  const lang = "en";
+  const lang = intl.locale;
 
   const education = data.sanityEducation;
   const about = data.sanityAbout;
@@ -73,7 +73,8 @@ export default function Index({ data }) {
         <Head title="Roland Branten" />
         <Photo photo={data.picture.childImageSharp.fluid} />
         <Title />
-        <About about={about} title={about.title[lang]} lang={lang} />
+        <About about={about} title={`ABOUT`} lang={lang} />
+        {/* <About about={about} title={about.title[lang]} lang={lang} /> */}
         <Work work={work} title={work.title[lang]} lang={lang} />
         <Education
           title={education.title[lang]}
