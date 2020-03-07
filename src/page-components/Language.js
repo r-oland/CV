@@ -37,7 +37,7 @@ const Bar2 = styled(motion.div)`
   background: ${({ theme: { primary } }) => primary.s4};
 `;
 
-export default function Language({ language, title }) {
+export default function Language({ language, title, lang }) {
   return (
     <Wrapper
       color="rgba(43, 43, 43, 1)"
@@ -47,7 +47,7 @@ export default function Language({ language, title }) {
     >
       <Title>{title}</Title>
       <LangSection>
-        <Lang>{language.dutch}</Lang>
+        <Lang>{language.dutch[lang]}</Lang>
         <Bar1>
           <Bar2
             animate={{
@@ -58,7 +58,7 @@ export default function Language({ language, title }) {
             }}
           />
         </Bar1>
-        <Lang>{language.english}</Lang>
+        <Lang>{language.english[lang]}</Lang>
         <Bar1>
           <Bar2
             animate={{

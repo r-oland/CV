@@ -78,13 +78,13 @@ const Bar2 = styled.div`
   background: ${({ theme: { primary } }) => primary.s4};
 `;
 
-export default function Education({ title, education }) {
-  const educationSection = education.map((edge, index) => {
+export default function Education({ title, education, lang }) {
+  const educationSection = education.educationInfo.map((edge, index) => {
     const place = edge.place;
     const year = edge.year;
     const school = edge.school;
     const level = edge.level;
-    const educ = edge.education;
+    const educ = edge.educ[lang];
 
     const RemoveLastBar = () => {
       if (index !== 1) {

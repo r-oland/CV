@@ -1,5 +1,6 @@
 // Components==============
 import { graphql } from "gatsby";
+import { useIntl } from "gatsby-plugin-intl";
 import React from "react";
 import styled from "styled-components";
 import Head from "../global-components/Layout/Head";
@@ -58,11 +59,13 @@ const Grid = styled.div`
 `;
 
 export default function Index({ data }) {
-  const titles = data.file.childTranslationsJson.titles[0];
-  const education = data.file.childTranslationsJson.education;
-  const aboutText = data.file.childTranslationsJson.aboutMe;
-  const work = data.file.childTranslationsJson.work;
-  const language = data.file.childTranslationsJson.language[0];
+  const intl = useIntl();
+  const lang = intl.locale;
+
+  const education = data.sanityEducation;
+  const about = data.sanityAbout;
+  const work = data.sanityWork;
+  const language = data.sanityLanguage;
 
   return (
     <Layout>
@@ -70,12 +73,20 @@ export default function Index({ data }) {
         <Head title="Roland Branten" />
         <Photo photo={data.picture.childImageSharp.fluid} />
         <Title />
-        <About text={aboutText} title={titles.aboutMe} />
-        <Work work={work} title={titles.work} />
-        <Education title={titles.education} education={education} />
-        <Language language={language} title={titles.language} />
-        <DevSkills title={titles.devSkills} />
-        <DesignSkills title={titles.designSkills} />
+        <About about={about} title={about.title[lang]} lang={lang} />
+        <Work work={work} title={work.title[lang]} lang={lang} />
+        <Education
+          title={education.title[lang]}
+          education={education}
+          lang={lang}
+        />
+        <Language
+          language={language}
+          title={language.title[lang]}
+          lang={lang}
+        />
+        <DevSkills title={data.sanityDevSkills.title[lang]} lang={lang} />
+        <DesignSkills title={data.sanityDesignSkills.title[lang]} lang={lang} />
         <Contact />
       </Grid>
     </Layout>
@@ -83,38 +94,70 @@ export default function Index({ data }) {
 }
 
 export const query = graphql`
-  query Home($language: String) {
-    file(name: { eq: $language }, relativeDirectory: { eq: "translations" }) {
-      childTranslationsJson {
-        aboutMe {
-          text
-        }
-        education {
-          education
-          level
-          place
-          school
-          year
-        }
-        titles {
-          aboutMe
-          designSkills
-          devSkills
-          education
-          language
-          work
-        }
-        work {
-          company
-          function
-          place
-          year
-        }
-        language {
-          dutch
-          english
+  query Home {
+    sanityWork {
+      title {
+        en
+        nl
+      }
+      jobInfo {
+        job
+        place
+        year
+        function {
+          en
+          nl
         }
       }
+    }
+    sanityEducation {
+      title {
+        en
+        nl
+      }
+      educationInfo {
+        level
+        place
+        school
+        year
+        educ {
+          en
+          nl
+        }
+      }
+    }
+    sanityDevSkills {
+      title {
+        en
+        nl
+      }
+    }
+    sanityDesignSkills {
+      title {
+        en
+        nl
+      }
+    }
+    sanityLanguage {
+      dutch {
+        en
+        nl
+      }
+      english {
+        en
+        nl
+      }
+      title {
+        en
+        nl
+      }
+    }
+    sanityAbout {
+      title {
+        en
+        nl
+      }
+      _rawAboutInfo
     }
     picture: file(relativePath: { eq: "Roland.jpg" }) {
       childImageSharp {

@@ -56,10 +56,10 @@ const Bar = styled.div`
   background: ${({ theme: { primary } }) => primary.s4};
 `;
 
-export default function Work({ title, work }) {
-  const workSections = work.map((edge, index) => {
-    const company = edge.company;
-    const fun = edge.function;
+export default function Work({ title, work, lang }) {
+  const workSections = work.jobInfo.map((edge, index) => {
+    const company = edge.job;
+    const fun = edge.function[lang];
     const place = edge.place;
     const year = edge.year;
 

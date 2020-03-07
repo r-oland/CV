@@ -71,6 +71,17 @@ module.exports = {
           include: /\.inline\.svg$/
         }
       }
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "609ubayx",
+        dataset: "production",
+        token: process.env.SANITY_TOKEN,
+        graphqlTag: "default",
+        watchMode: true,
+        overlayDrafts: true
+      }
     }
   ]
 };
