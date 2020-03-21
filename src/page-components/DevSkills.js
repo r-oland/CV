@@ -1,5 +1,5 @@
 // Components==============
-import Firebase from "assets/FireBase.svg";
+import Firebase from "assets/FB.svg";
 import Gatsby from "assets/Gatsby.svg";
 import Github from "assets/Github.svg";
 import GraphQL from "assets/GraphQL.svg";
