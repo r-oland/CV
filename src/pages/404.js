@@ -1,5 +1,4 @@
 // Components==============
-import logo from "assets/logo.png";
 import { Container } from "mixins";
 import React from "react";
 import styled from "styled-components";
@@ -26,7 +25,6 @@ export default function NotFound() {
       <Head title="404 NOT FOUND" />
       <Container404>
         <h2>I could not find what you where looking for...</h2>
-        <img src={logo} alt="logo" style={{ display: "none" }} />
         {/* eslint-disable-next-line */}
         <Smiley>😟</Smiley>
       </Container404>

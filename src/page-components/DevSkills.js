@@ -1,11 +1,11 @@
 // Components==============
-import CMS from "assets/CMS.svg";
+import Firebase from "assets/Firebase.svg";
 import Gatsby from "assets/Gatsby.svg";
 import Github from "assets/Github.svg";
 import GraphQL from "assets/GraphQL.svg";
 import Javascript from "assets/Javascript.svg";
-import Netlify from "assets/Netlify.svg";
 import ReactSvg from "assets/React.svg";
+import Sanity from "assets/Sanity.svg";
 import React from "react";
 import styled from "styled-components";
 import Wrapper from "../single-components/Wrapper";
@@ -30,11 +30,11 @@ const SkillArray = [
   },
   {
     name: "Headless CMS",
-    svg: CMS
+    svg: Sanity
   },
   {
-    name: "Netlify functions",
-    svg: Netlify
+    name: "Firebase",
+    svg: Firebase
   },
   {
     name: "Github",
