@@ -1,9 +1,9 @@
 // Components==============
 import Firebase from "assets/FB.svg";
 import Gatsby from "assets/Gatsby.svg";
-import Github from "assets/Github.svg";
 import GraphQL from "assets/GraphQL.svg";
 import Javascript from "assets/Javascript.svg";
+import Node from "assets/Node.svg";
 import ReactSvg from "assets/React.svg";
 import Sanity from "assets/Sanity.svg";
 import React from "react";
@@ -14,32 +14,32 @@ import Wrapper from "../single-components/Wrapper";
 const SkillArray = [
   {
     name: "Vanilla Javascript",
-    svg: Javascript
+    svg: Javascript,
   },
   {
     name: "React",
-    svg: ReactSvg
+    svg: ReactSvg,
   },
   {
     name: "Gatsby",
-    svg: Gatsby
+    svg: Gatsby,
   },
   {
     name: "GraphQL",
-    svg: GraphQL
+    svg: GraphQL,
   },
   {
     name: "Headless CMS",
-    svg: Sanity
+    svg: Sanity,
   },
   {
     name: "Firebase",
-    svg: Firebase
+    svg: Firebase,
   },
   {
-    name: "Github",
-    svg: Github
-  }
+    name: "Node",
+    svg: Node,
+  },
 ];
 
 const Title = styled.h3`

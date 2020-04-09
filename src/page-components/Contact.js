@@ -1,7 +1,7 @@
 // Components==============
-import Github from "assets/Github.svg";
 import Home from "assets/Home.svg";
 import Mail from "assets/Mail.svg";
+import Node from "assets/Node.svg";
 import Phone from "assets/Phone.svg";
 import Site from "assets/Site.svg";
 import React from "react";
@@ -17,7 +17,7 @@ const contactArray = [
     link: "yes",
     to: "https://rolandbranten.nl",
     target: "_blank",
-    rel: "noopener noreferrer"
+    rel: "noopener noreferrer",
   },
   {
     icon: Mail,
@@ -25,7 +25,7 @@ const contactArray = [
     link: "yes",
     to: "mailto:info@rolandbranten.nl",
     target: "",
-    rel: ""
+    rel: "",
   },
   {
     icon: Phone,
@@ -33,7 +33,7 @@ const contactArray = [
     link: "no",
     to: "",
     target: "",
-    rel: ""
+    rel: "",
   },
   {
     icon: Home,
@@ -41,16 +41,16 @@ const contactArray = [
     link: "no",
     to: "",
     target: "",
-    rel: ""
+    rel: "",
   },
   {
-    icon: Github,
+    icon: Node,
     value: `r-oland`,
     link: "yes",
-    to: "https://github.com/r-oland",
+    to: "https://Node.com/r-oland",
     target: "_blank",
-    rel: "noopener noreferrer"
-  }
+    rel: "noopener noreferrer",
+  },
 ];
 
 const Grid = styled.div`
@@ -75,7 +75,7 @@ const ValueP = styled.p`
 export default function Contact() {
   return (
     <Wrapper color="white" size={2} foldText="CONTACT" gridArea="Contact">
-      {contactArray.map(edge => {
+      {contactArray.map((edge) => {
         const ConditionalValue = () => {
           if (edge.link === "yes") {
             return (
