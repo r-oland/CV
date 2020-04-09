@@ -1,7 +1,7 @@
 // Components==============
+import Github from "assets/Github.svg";
 import Home from "assets/Home.svg";
 import Mail from "assets/Mail.svg";
-import Node from "assets/Node.svg";
 import Phone from "assets/Phone.svg";
 import Site from "assets/Site.svg";
 import React from "react";
@@ -44,10 +44,10 @@ const contactArray = [
     rel: "",
   },
   {
-    icon: Node,
+    icon: Github,
     value: `r-oland`,
     link: "yes",
-    to: "https://Node.com/r-oland",
+    to: "https://Github.com/r-oland",
     target: "_blank",
     rel: "noopener noreferrer",
   },
