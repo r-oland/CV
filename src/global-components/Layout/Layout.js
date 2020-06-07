@@ -8,15 +8,21 @@ import { Variables } from "../../style/themes";
 import IEWarning from "./IE/IEWarning";
 // =========================
 
-export default function Layout({ children }) {
+export const LocaleContext = React.createContext();
+
+export default function Layout({ children, pageContext }) {
+  const lang = pageContext.language;
+
   return (
     <ThemeProvider theme={Variables}>
-      <IEWarning />
-      <Container style={{ marginBottom: `4em` }}>
-        <LanguageSwitch />
-        {children}
-      </Container>
-      <GlobalStyles />
+      <LocaleContext.Provider value={lang}>
+        <IEWarning />
+        <Container style={{ marginBottom: `4em` }}>
+          <LanguageSwitch path={pageContext.singlePath} lang={lang} />
+          {children}
+        </Container>
+        <GlobalStyles />
+      </LocaleContext.Provider>
     </ThemeProvider>
   );
 }

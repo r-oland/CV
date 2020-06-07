@@ -19,9 +19,9 @@ const Container404 = styled(Container)`
   height: 40vh;
 `;
 
-export default function NotFound() {
+export default function NotFound({ data, pageContext, path }) {
   return (
-    <Layout>
+    <Layout pageContext={pageContext} path={path}>
       <Head title="404 NOT FOUND" />
       <Container404>
         <h2>I could not find what you where looking for...</h2>

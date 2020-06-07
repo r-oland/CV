@@ -1,8 +1,8 @@
 // Components==============
 import { graphql, useStaticQuery } from "gatsby";
-import { useIntl } from "gatsby-plugin-intl";
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
+import { LocaleContext } from "./Layout";
 // =========================
 
 export default function Head({ title }) {
@@ -17,7 +17,7 @@ export default function Head({ title }) {
   `);
   const siteTitle = data.site.siteMetadata.title;
 
-  const intl = useIntl();
+  const lang = useContext(LocaleContext);
 
   return (
     <Helmet>
@@ -25,7 +25,7 @@ export default function Head({ title }) {
       <meta name="robots" content="noindex,nofollow"></meta>
       <meta name="author" content="Roland Branten"></meta>
       <title>{`${siteTitle} | ${title}`}</title>
-      <html lang={intl.locale} />
+      <html lang={lang} />
     </Helmet>
   );
 }

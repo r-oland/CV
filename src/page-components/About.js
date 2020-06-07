@@ -19,17 +19,15 @@ const TextWrapper = styled.div`
 
 const serializers = {
   types: {
-    code: props => (
+    code: (props) => (
       <pre data-language={props.node.language}>
         <code>{props.node.code}</code>
       </pre>
-    )
-  }
+    ),
+  },
 };
 
 export default function About({ about, title, lang }) {
-  console.log(about._rawAboutInfo);
-
   return (
     <Wrapper color="white" size={3} foldText={title} gridArea="About">
       <Title>{title}</Title>

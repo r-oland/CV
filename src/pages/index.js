@@ -1,6 +1,5 @@
 // Components==============
 import { graphql } from "gatsby";
-import { useIntl } from "gatsby-plugin-intl";
 import React from "react";
 import styled from "styled-components";
 import Head from "../global-components/Layout/Head";
@@ -58,9 +57,8 @@ const Grid = styled.div`
   }
 `;
 
-export default function Index({ data }) {
-  const intl = useIntl();
-  const lang = intl.locale;
+export default function Index({ data, pageContext, path }) {
+  const lang = pageContext.language;
 
   const education = data.sanityEducation;
   const about = data.sanityAbout;
@@ -68,7 +66,7 @@ export default function Index({ data }) {
   const language = data.sanityLanguage;
 
   return (
-    <Layout>
+    <Layout pageContext={pageContext} path={path}>
       <Grid>
         <Head title="Roland Branten" />
         <Photo photo={data.picture.childImageSharp.fluid} />

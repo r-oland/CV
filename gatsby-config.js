@@ -5,7 +5,7 @@ module.exports = {
   siteMetadata: {
     title: `CV`,
     description: `undefined`,
-    author: `Roland Branten`
+    author: `Roland Branten`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,31 +18,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `assets`,
-        path: `${__dirname}/src/assets`
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `data`,
-        path: `${__dirname}/src/data`
-      }
-    },
-    {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        path: `${__dirname}/src/data/intl`,
-        languages: [`en`, `nl`],
-        defaultLanguage: `en`,
-        redirect: true
-      }
+        path: `${__dirname}/src/assets`,
+      },
     },
     {
       resolve: "gatsby-plugin-root-import",
       options: {
         assets: path.join(__dirname, "src/assets"),
-        mixins: path.join(__dirname, "src/style/Mixins")
-      }
+        mixins: path.join(__dirname, "src/style/Mixins"),
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -58,19 +42,19 @@ module.exports = {
         localize: [
           {
             start_url: `/nl/`,
-            lang: `nl`
-          }
-        ]
-      }
+            lang: `nl`,
+          },
+        ],
+      },
     },
-    `gatsby-plugin-offline`,
+    "gatsby-plugin-remove-serviceworker",
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /\.inline\.svg$/
-        }
-      }
+          include: /\.inline\.svg$/,
+        },
+      },
     },
     {
       resolve: "gatsby-source-sanity",
@@ -80,8 +64,8 @@ module.exports = {
         token: process.env.SANITY_TOKEN,
         graphqlTag: "default",
         watchMode: true,
-        overlayDrafts: true
-      }
-    }
-  ]
+        overlayDrafts: true,
+      },
+    },
+  ],
 };

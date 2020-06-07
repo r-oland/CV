@@ -1,6 +1,6 @@
 // Components==============
 import { motion } from "framer-motion";
-import { changeLocale, IntlContextConsumer } from "gatsby-plugin-intl";
+import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 // ========================
@@ -42,26 +42,16 @@ const EN = styled.button`
     language === "en" ? fontWeight.bold : fontWeight.normal};
 `;
 
-export default function LanguageSwitch() {
+export default function LanguageSwitch({ lang, path }) {
   return (
     <FullWidth>
-      <IntlContextConsumer>
-        {({ language }) => {
-          return (
-            <Flex
-              onClick={() =>
-                language === "en" ? changeLocale("nl") : changeLocale("en")
-              }
-            >
-              <NL language={language}>NL</NL>
-              <span>/</span>
-              <EN onClick={() => changeLocale("en")} language={language}>
-                EN
-              </EN>
-            </Flex>
-          );
-        }}
-      </IntlContextConsumer>
+      <Flex>
+        <Link to={lang === "en" ? `${path}` : `/en${path}`}>
+          <NL language={lang}>NL</NL>
+          <span>/</span>
+          <EN language={lang}>EN</EN>
+        </Link>
+      </Flex>
     </FullWidth>
   );
 }
