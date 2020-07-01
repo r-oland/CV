@@ -1,5 +1,5 @@
 // Components==============
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "../../node_modules/framer-motion/dist/framer-motion";
 // =========================
@@ -10,6 +10,8 @@ const Button = styled(motion.button)`
   padding: ${({ theme: { spacing } }) => `${spacing[0]} ${spacing[2]}`};
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
   display: none;
+  pointer-events: ${({ loadingState }) =>
+    loadingState === "Generating Pdf..." && "none"};
 
   ${({ theme: { mediaQ } }) => mediaQ.custom(720)} {
     display: block;
@@ -18,10 +20,40 @@ const Button = styled(motion.button)`
 `;
 
 export default function PdfConverter() {
+  const [loadingState, setLoadingState] = useState("Download page");
+
   const handleClick = () => {
-    fetch("/.netlify/functions/test").then((data) => {
-      return console.log(data);
-    });
+    setLoadingState("Generating Pdf...");
+    console.log("click");
+
+    try {
+      fetch("/.netlify/functions/convertToPdf").then((data) =>
+        data.json().then((r) => {
+          setLoadingState("Download page");
+
+          const file = r.Files[0].Url;
+          // Create an invisible A element
+          const a = document.createElement("a");
+          a.style.display = "none";
+          document.body.appendChild(a);
+
+          // Set the HREF to a Blob representation of the data to be downloaded
+          a.href = file;
+
+          // Use download attribute to set set desired file name
+          a.setAttribute("download", "CV-Roland-Branten");
+
+          // Trigger the download by simulating click
+          a.click();
+
+          // Cleanup
+          window.URL.revokeObjectURL(a.href);
+          document.body.removeChild(a);
+        })
+      );
+    } catch {
+      setLoadingState("Failed");
+    }
   };
 
   return (
@@ -29,8 +61,9 @@ export default function PdfConverter() {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={handleClick}
+      loadingState={loadingState}
     >
-      Download page
+      {loadingState}
     </Button>
   );
 }
