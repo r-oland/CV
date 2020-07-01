@@ -2,13 +2,13 @@
 import { Container } from "mixins";
 import React from "react";
 import styled from "styled-components";
-import Head from "../global-components/Layout/Head";
-import Layout from "../global-components/Layout/Layout";
+import Head from "../global-components/Head";
+import Layout from "../global-components/Layout";
 // =========================
 
 const Smiley = styled.p`
   font-size: 45px;
-  margin-top: ${({ theme: { spacing } }) => spacing.s3};
+  margin-top: ${({ theme: { spacing } }) => spacing[3]};
 `;
 
 const Container404 = styled(Container)`

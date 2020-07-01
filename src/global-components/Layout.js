@@ -1,10 +1,8 @@
 // Components==============
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import LanguageSwitch from "../../single-components/LanguageSwitch";
-import GlobalStyles from "../../style/GlobalStyles";
-import { Container } from "../../style/Mixins";
-import { Variables } from "../../style/themes";
+import GlobalStyles from "../style/GlobalStyles";
+import { theme } from "../style/themes";
 import IEWarning from "./IE/IEWarning";
 // =========================
 
@@ -14,13 +12,10 @@ export default function Layout({ children, pageContext }) {
   const lang = pageContext.language;
 
   return (
-    <ThemeProvider theme={Variables}>
+    <ThemeProvider theme={theme}>
       <LocaleContext.Provider value={lang}>
         <IEWarning />
-        <Container style={{ marginBottom: `4em` }}>
-          <LanguageSwitch path={pageContext.singlePath} lang={lang} />
-          {children}
-        </Container>
+        {children}
         <GlobalStyles />
       </LocaleContext.Provider>
     </ThemeProvider>

@@ -6,7 +6,6 @@ import IEModal from "./IEModal";
 
 const Text = styled.p`
   font-size: 20px;
-  line-height: ${({ theme: { lineHeight } }) => lineHeight.s4};
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
 `;
 
@@ -23,13 +22,15 @@ export default function IEWarning() {
   };
 
   return (
-    <div>
-      <IEModal modalIsOpen={modalIsOpen} handleChange={handleChange}>
-        <Text>
-          Internet Explorer word sinds april 2017 niet meer ondersteund. Gebruik
-          a.u.b. een moderne browser om deze site te bezoeken.
-        </Text>
-      </IEModal>
-    </div>
+    <>
+      {modalIsOpen && (
+        <IEModal modalIsOpen={modalIsOpen} handleChange={handleChange}>
+          <Text>
+            Internet Explorer word sinds april 2017 niet meer ondersteund.
+            Gebruik a.u.b. een moderne browser om deze site te bezoeken.
+          </Text>
+        </IEModal>
+      )}
+    </>
   );
 }

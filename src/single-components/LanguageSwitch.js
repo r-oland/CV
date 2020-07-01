@@ -1,16 +1,17 @@
 // Components==============
 import { motion } from "framer-motion";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { LangContext } from "../pages/index";
 // ========================
 
 const FullWidth = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: ${({ theme: { spacing } }) => spacing.s3};
-  margin-bottom: ${({ theme: { spacing } }) => spacing.s4};
+  margin-top: ${({ theme: { spacing } }) => spacing[3]};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[4]};
 
   @media screen and (min-width: 768px) {
     justify-content: flex-end;
@@ -42,11 +43,13 @@ const EN = styled.button`
     language === "en" ? fontWeight.bold : fontWeight.normal};
 `;
 
-export default function LanguageSwitch({ lang, path }) {
+export default function LanguageSwitch() {
+  const lang = useContext(LangContext);
+
   return (
     <FullWidth>
       <Flex>
-        <Link to={lang === "en" ? `${path}` : `/en${path}`}>
+        <Link to={lang === "en" ? `/` : `/en`}>
           <NL language={lang}>NL</NL>
           <span>/</span>
           <EN language={lang}>EN</EN>

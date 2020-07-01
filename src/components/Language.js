@@ -1,7 +1,8 @@
 // Components==============
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { LangContext } from "../pages/index";
 import Wrapper from "../single-components/Wrapper";
 // =========================
 
@@ -17,15 +18,15 @@ const LangSection = styled.div`
 const Lang = styled.p`
   color: ${({ theme: { white } }) => white};
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.semiBold};
-  margin-bottom: ${({ theme: { spacing } }) => spacing.s1};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[0]};
   font-size: 15px;
 `;
 
 const Bar1 = styled.div`
-  background: ${({ theme: { gray } }) => gray.s1};
+  background: ${({ theme: { notWhite } }) => notWhite};
   width: 100%;
   height: 12.5px;
-  margin-bottom: ${({ theme: { spacing } }) => spacing.s2};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[1]};
   position: relative;
 `;
 
@@ -34,38 +35,39 @@ const Bar2 = styled(motion.div)`
   height: 100%;
   top: 0;
   left: 0;
-  background: ${({ theme: { primary } }) => primary.s4};
+  background: ${({ theme: { primary } }) => primary};
 `;
 
-export default function Language({ language, title, lang }) {
+export default function Language() {
+  const lang = useContext(LangContext);
+
+  const title = lang === "en" ? "Language" : "Taal";
+  const dutch = lang === "en" ? "Dutch" : "Nederlands";
+  const english = lang === "en" ? "English" : "Engels";
+
   return (
-    <Wrapper
-      color="rgba(43, 43, 43, 1)"
-      size={1}
-      foldText={title}
-      gridArea="Language"
-    >
+    <Wrapper color="black" gridArea="Language">
       <Title>{title}</Title>
       <LangSection>
-        <Lang>{language.dutch[lang]}</Lang>
+        <Lang>{dutch}</Lang>
         <Bar1>
           <Bar2
             animate={{
-              width: `86%`
+              width: `86%`,
             }}
             transition={{
-              duration: 0.5
+              duration: 0.5,
             }}
           />
         </Bar1>
-        <Lang>{language.english[lang]}</Lang>
+        <Lang>{english}</Lang>
         <Bar1>
           <Bar2
             animate={{
-              width: `73%`
+              width: `73%`,
             }}
             transition={{
-              duration: 1
+              duration: 1,
             }}
           />
         </Bar1>

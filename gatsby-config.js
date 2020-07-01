@@ -4,7 +4,7 @@ const path = require("path");
 module.exports = {
   siteMetadata: {
     title: `CV`,
-    description: `undefined`,
+    description: `CV of Roland Branten`,
     author: `Roland Branten`,
   },
   plugins: [
@@ -12,7 +12,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    "gatsby-transformer-json",
     `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -59,7 +58,7 @@ module.exports = {
     {
       resolve: "gatsby-source-sanity",
       options: {
-        projectId: "609ubayx",
+        projectId: "mlhs3v8e",
         dataset: "production",
         token: process.env.SANITY_TOKEN,
         graphqlTag: "default",

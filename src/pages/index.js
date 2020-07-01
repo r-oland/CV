@@ -1,119 +1,79 @@
 // Components==============
 import { graphql } from "gatsby";
 import React from "react";
-import styled from "styled-components";
-import Head from "../global-components/Layout/Head";
-import Layout from "../global-components/Layout/Layout";
-import About from "../page-components/About";
-import Contact from "../page-components/Contact";
-import DesignSkills from "../page-components/DesingSkills";
-import DevSkills from "../page-components/DevSkills";
-import Education from "../page-components/Education";
-import Language from "../page-components/Language";
-import Photo from "../page-components/Photo";
-import Title from "../page-components/Title";
-import Work from "../page-components/Work";
+import About from "../components/About";
+import Contact from "../components/Contact";
+import Education from "../components/Education";
+import Language from "../components/Language";
+import Photo from "../components/Photo";
+import SideProjects from "../components/SideProjects";
+import Design from "../components/skills/Design";
+import Dev from "../components/skills/Dev";
+import Title from "../components/Title";
+import Work from "../components/Work";
+import Head from "../global-components/Head";
+import Layout from "../global-components/Layout";
+import Grid from "../single-components/Grid";
+import LanguageSwitch from "../single-components/LanguageSwitch";
+import { Container } from "../style/Mixins";
 // =========================
 
-const Grid = styled.div`
-  display: grid;
-  grid-gap: 12px;
-  justify-content: center;
-
-  @media screen and (min-width: 720px) {
-    grid-template-areas:
-      "Title About"
-      "Photo About"
-      "Photo About"
-      "Photo Work"
-      "Education Work"
-      "Education Work"
-      "Language Work"
-      "DesignSkills DevSkills"
-      "Contact DevSkills"
-      "Contact DevSkills"
-      "Contact DevSkills";
-  }
-
-  @media screen and (min-width: 1069px) {
-    grid-template-areas:
-      "Title About Work"
-      "Photo About Work"
-      "Photo About Work"
-      "Photo DevSkills Work"
-      "Contact DevSkills DesignSkills"
-      "Contact DevSkills Education"
-      "Language DevSkills Education";
-  }
-
-  @media screen and (min-width: 1430px) {
-    grid-template-areas:
-      "Title Work DevSkills DesignSkills"
-      "Photo Work DevSkills About"
-      "Photo Work DevSkills About"
-      "Photo Work DevSkills About"
-      "Contact Education Language About "
-      "Contact Education Language About";
-  }
-`;
+export const LangContext = React.createContext(null);
 
 export default function Index({ data, pageContext, path }) {
   const lang = pageContext.language;
 
-  const education = data.sanityEducation;
-  const about = data.sanityAbout;
-  const work = data.sanityWork;
-  const language = data.sanityLanguage;
-
   return (
-    <Layout pageContext={pageContext} path={path}>
-      <Grid>
-        <Head title="Roland Branten" />
-        <Photo photo={data.picture.childImageSharp.fluid} />
-        <Title />
-        <About about={about} title={about.title[lang]} lang={lang} />
-        <Work work={work} title={work.title[lang]} lang={lang} />
-        <Education
-          title={education.title[lang]}
-          education={education}
-          lang={lang}
-        />
-        <Language
-          language={language}
-          title={language.title[lang]}
-          lang={lang}
-        />
-        <DevSkills title={data.sanityDevSkills.title[lang]} lang={lang} />
-        <DesignSkills title={data.sanityDesignSkills.title[lang]} lang={lang} />
-        <Contact />
-      </Grid>
-    </Layout>
+    <>
+      <Head title="Roland Branten" />
+      <LangContext.Provider value={lang}>
+        <Layout pageContext={pageContext} path={path}>
+          <Container>
+            <LanguageSwitch />
+            <Grid>
+              <Title content={data.sanityRoland.title} />
+              <Photo content={data.sanityRoland.image.asset.fluid} />
+              <Work content={data.sanityWorkOrder.projects} />
+              <Dev content={data.sanityTechOrder.development} />
+              <About content={data.sanityRoland._rawAboutShort[lang]} />
+              <Design content={data.sanityTechOrder.design} />
+              <Education content={data.sanityRoland.education} />
+              <SideProjects content={data.sanityWorkOrder.SideProjects} />
+              <Contact content={data.sanityRoland.contact} />
+              <Language />
+            </Grid>
+          </Container>
+        </Layout>
+      </LangContext.Provider>
+    </>
   );
 }
 
 export const query = graphql`
-  query Home {
-    sanityWork {
-      title {
-        en
-        nl
-      }
-      jobInfo {
-        job
-        place
-        year
-        function {
+  query cvQuery {
+    sanityWorkOrder {
+      SideProjects {
+        name
+        description {
           en
           nl
         }
+        url
+      }
+      projects {
+        name
+        period
+        description {
+          en
+          nl
+        }
+        url
       }
     }
-    sanityEducation {
-      title {
-        en
-        nl
-      }
-      educationInfo {
+    sanityRoland {
+      title
+      _rawAboutShort
+      education {
         level
         place
         school
@@ -123,44 +83,36 @@ export const query = graphql`
           nl
         }
       }
-    }
-    sanityDevSkills {
-      title {
-        en
-        nl
+      image {
+        asset {
+          fluid(maxWidth: 500) {
+            ...GatsbySanityImageFluid_withWebp
+          }
+        }
+      }
+      contact {
+        website
+        mail
+        phone
+        github
+        city
       }
     }
-    sanityDesignSkills {
-      title {
-        en
-        nl
+    sanityTechOrder {
+      design {
+        name
+        icon {
+          asset {
+            url
+          }
+        }
       }
-    }
-    sanityLanguage {
-      dutch {
-        en
-        nl
-      }
-      english {
-        en
-        nl
-      }
-      title {
-        en
-        nl
-      }
-    }
-    sanityAbout {
-      title {
-        en
-        nl
-      }
-      _rawAboutInfo
-    }
-    picture: file(relativePath: { eq: "Roland.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500, quality: 100) {
-          ...GatsbyImageSharpFluid_withWebp
+      development {
+        name
+        icon {
+          asset {
+            url
+          }
         }
       }
     }

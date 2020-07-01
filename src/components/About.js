@@ -1,19 +1,19 @@
 // Components==============
 import BlockContent from "@sanity/block-content-to-react";
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { LangContext } from "../pages/index";
 import Wrapper from "../single-components/Wrapper";
 // =========================
 
 const Title = styled.h3`
   text-align: center;
-  margin-bottom: ${({ theme: { spacing } }) => spacing.s3};
+  margin-bottom: ${({ theme: { spacing } }) => spacing[3]};
 `;
 
 const TextWrapper = styled.div`
   p {
-    line-height: ${({ theme: { lineHeight } }) => lineHeight.s3};
-    margin-bottom: ${({ theme: { spacing } }) => spacing.s4};
+    margin-bottom: ${({ theme: { spacing } }) => spacing[4]};
   }
 `;
 
@@ -27,16 +27,16 @@ const serializers = {
   },
 };
 
-export default function About({ about, title, lang }) {
+export default function About({ content }) {
+  const lang = useContext(LangContext);
+
+  const title = lang === "en" ? "About me" : "Over mij";
+
   return (
-    <Wrapper color="white" size={3} foldText={title} gridArea="About">
+    <Wrapper color="white" gridArea="About">
       <Title>{title}</Title>
       <TextWrapper>
-        <BlockContent
-          blocks={about._rawAboutInfo[lang]}
-          serializers={serializers}
-        />
-        ,
+        <BlockContent blocks={content} serializers={serializers} />,
       </TextWrapper>
     </Wrapper>
   );

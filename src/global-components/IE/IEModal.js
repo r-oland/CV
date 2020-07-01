@@ -37,8 +37,8 @@ const Modal = styled.div`
   .close {
     cursor: pointer;
     position: fixed;
-    right: ${({ theme: { spacing } }) => spacing.s5};
-    top: ${({ theme: { spacing } }) => spacing.s3};
+    right: ${({ theme: { spacing } }) => spacing[5]};
+    top: ${({ theme: { spacing } }) => spacing[3]};
     color: ${({ theme: { white } }) => white};
     font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
     z-index: 302;
@@ -48,7 +48,7 @@ const Modal = styled.div`
 const OverflowDiv = styled.div`
   overflow: auto;
   max-height: 80vh;
-  padding: ${({ theme: { spacing } }) => `${spacing.s8} ${spacing.s5}`};
+  padding: ${({ theme: { spacing } }) => `${spacing[8]} ${spacing[5]}`};
 `;
 
 export default function IEModal({ modalIsOpen, children, handleChange }) {

@@ -10,6 +10,12 @@ const Flex = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
+  margin-top: 15px;
+
+  ${({ theme: { mediaQ } }) => mediaQ.custom(720)} {
+    margin-top: 0;
+  }
 `;
 
 const Name = styled.h1`
@@ -18,22 +24,23 @@ const Name = styled.h1`
 
 const Bar = styled.div`
   width: 90%;
-  height: 5px;
-  border-radius: ${({ theme: { borderRadius2 } }) => borderRadius2};
-  background: ${({ theme: { primary } }) => primary.s4};
+  height: 3px;
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
+  background: ${({ theme: { primary } }) => primary};
 `;
 
 const Description = styled.h3`
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
+  margin-top: ${({ theme: { spacing } }) => spacing[0]};
 `;
 
-export default function Title() {
+export default function Title({ content }) {
   return (
-    <Wrapper color="white" size={1} noFold={true} id="title" gridArea="Title">
+    <Wrapper color="white" noFold gridArea="Title">
       <Flex>
         <Name>ROLAND BRANTEN</Name>
         <Bar />
-        <Description>{`developer & designer`}</Description>
+        <Description>{content}</Description>
       </Flex>
     </Wrapper>
   );

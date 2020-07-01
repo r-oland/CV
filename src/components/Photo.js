@@ -9,16 +9,10 @@ const IMG = styled(Img)`
   height: 100%;
 `;
 
-export default function Photo({ photo }) {
+export default function Photo({ content }) {
   return (
-    <Wrapper
-      padding="noPadding"
-      size={3}
-      noFold={true}
-      id="photo"
-      gridArea="Photo"
-    >
-      <IMG fluid={photo} alt="photo" />
+    <Wrapper noFold gridArea="Photo" color="primary" noPadding>
+      <IMG fluid={content} alt="photo" />
     </Wrapper>
   );
 }

@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 
    html {
       font-family: poppins;
-      background-color: ${({ theme: { gray } }) => gray.s1};
+      background-color: ${({ theme: { notWhite } }) => notWhite};
       height: 100%;
 
       input, select, textarea, label{
@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
    }
 
    body {
-      color: ${({ theme: { gray } }) => gray.s9};
+      color: ${({ theme: { black } }) => black};
       height: 100%;
    }
 
@@ -150,7 +150,6 @@ const GlobalStyles = createGlobalStyle`
    address,
    button
     {
-      line-height: ${({ theme }) => theme.lineHeight.s3};
       padding: 0;
    }
 

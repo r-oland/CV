@@ -1,130 +1,38 @@
 // Components==============
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 // =========================
 
-const Wrap = styled(motion.div)`
-  overflow: hidden;
-  max-width: 334px;
-  position: relative;
-  width: 100%;
+const Wrapper = styled.div`
+  background: ${({ theme, color }) => theme[color]};
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
-  overflow: hidden;
-  box-shadow: ${({ theme: { shadow } }) => shadow.medium};
-  background-color: ${({ color }) => color};
-  padding: ${({ theme: { spacing }, padding }) =>
-    padding === "noPadding" ? `0` : `${spacing.s4} ${spacing.s5}`};
-  cursor: ${({ folded }) => (folded ? `initial` : `pointer`)};
-  @media screen and (min-width: 720px) {
-    grid-area: ${({ gridArea }) => gridArea};
-    width: 334px;
-  }
-
-  @media screen and (min-width: 360px) {
-    height: ${({ size }) => `calc(145px * ${size})`};
-  }
-
-  @media screen and (min-width: 720px) {
-    cursor: initial;
-  }
-`;
-
-const FoldText = styled.h3`
-  position: absolute;
-  text-align: center;
+  box-shadow: ${({ theme: { shadow } }) => shadow.s};
+  padding: ${({ theme: { spacing }, noPadding }) =>
+    !noPadding && `${spacing[3]} ${spacing[5]}`};
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  visibility: ${({ folded }) => (folded ? `hidden` : `visible`)};
-  color: ${({ color }) => (color === `rgba(43, 43, 43, 1)` ? `white` : ``)};
-  @media screen and (min-width: 720px) {
-    display: none;
-  }
-`;
-
-const Visibility = styled.div`
+  grid-area: ${({ gridArea }) => gridArea};
+  min-height: 145px;
+  max-width: 344px;
   height: 100%;
-  visibility: ${({ folded }) => (folded ? `visible` : `hidden`)};
-
-  @media screen and (min-width: 720px) {
-    visibility: visible;
-  }
+  margin: 0 auto 12px;
+  overflow: hidden;
 `;
 
-export default function Wrapper({
+export default function WrapperComponent({
   children,
   color,
-  padding,
-  size,
-  foldText,
   noFold,
-  id,
-  gridArea
+  gridArea,
+  noPadding,
 }) {
-  const variants = () => {
-    if (noFold === true) {
-      return null;
-    }
-
-    return {
-      folded: {
-        height: 60
-      },
-      unFolded: {
-        height: `calc(145px * ${size})`
-      }
-    };
-  };
-
-  const query =
-    typeof window !== "undefined" && window.matchMedia(`(min-width: 720px)`);
-
-  const [folded, setFolded] = useState(query.matches);
-
-  useEffect(() => {
-    if (query.matches === true) {
-      window.addEventListener(`resize`, () => {
-        setFolded(query.matches);
-      });
-
-      return () => {
-        window.removeEventListener(`resize`, () => {
-          setFolded(query.matches);
-        });
-      };
-    }
-  }, [query.matches]);
-
   return (
-    <Wrap
-      gridArea={gridArea}
-      className={id}
+    <Wrapper
       color={color}
-      padding={padding}
-      size={size}
-      folded={folded}
-      whileHover={query.matches && { scale: 1.05, zIndex: 5 }}
-      animate={folded ? "unFolded" : "folded"}
-      transition={{
-        damping: 10,
-        stiffness: 100
-      }}
-      variants={variants()}
-      initial={false}
-      onClick={() => {
-        if (query.matches === false && folded === false) {
-          folded ? setFolded(false) : setFolded(true);
-        }
-      }}
+      noFold={noFold}
+      gridArea={gridArea}
+      noPadding={noPadding}
     >
-      <FoldText folded={folded} color={color}>
-        {foldText}
-      </FoldText>
-      <Visibility className={id} folded={folded}>
-        {children}
-      </Visibility>
-    </Wrap>
+      {children}
+    </Wrapper>
   );
 }
