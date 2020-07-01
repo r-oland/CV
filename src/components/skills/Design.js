@@ -15,7 +15,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  ${({ theme: { mediaQ } }) => mediaQ.custom(300)} {
+  ${({ theme: { mediaQ } }) => mediaQ.custom(330)} {
     grid-template-columns: repeat(3, 1fr);
   }
   grid-row-gap: ${({ theme: { spacing } }) => spacing[2]};

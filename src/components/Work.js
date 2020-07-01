@@ -75,8 +75,8 @@ export default function Work({ content }) {
 
   const projects = content.map((e, index) => {
     return (
-      <>
-        <Project key={index}>
+      <div key={index}>
+        <Project>
           <strong>{e.period}</strong>
           <h3>{e.name}</h3>
           <p>{e.description[lang]}</p>
@@ -95,7 +95,7 @@ export default function Work({ content }) {
           </Flex>
         </Project>
         {index !== 2 && <Bar />}
-      </>
+      </div>
     );
   });
 

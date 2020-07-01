@@ -14,7 +14,7 @@ const Title = styled.h3`
 const Grid = styled.div`
   grid-template-columns: repeat(2, 1fr);
 
-  ${({ theme: { mediaQ } }) => mediaQ.custom(300)} {
+  ${({ theme: { mediaQ } }) => mediaQ.custom(330)} {
     grid-template-columns: repeat(3, 1fr);
   }
   display: grid;

@@ -7,15 +7,7 @@ import { LangContext } from "../pages/index";
 // ========================
 
 const FullWidth = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: center;
-  margin-top: ${({ theme: { spacing } }) => spacing[3]};
-  margin-bottom: ${({ theme: { spacing } }) => spacing[4]};
-
-  @media screen and (min-width: 768px) {
-    justify-content: flex-end;
-  }
 `;
 
 const Flex = styled(motion.div)`

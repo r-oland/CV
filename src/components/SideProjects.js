@@ -57,8 +57,8 @@ export default function SideProjects({ content }) {
 
   const projects = content.map((e, index) => {
     return (
-      <>
-        <Project key={index}>
+      <div key={index}>
+        <Project>
           <h3>{e.name}</h3>
           <p>{e.description[lang]}</p>
           <Flex>
@@ -76,7 +76,7 @@ export default function SideProjects({ content }) {
           </Flex>
         </Project>
         {index !== 1 && <Bar />}
-      </>
+      </div>
     );
   });
 

@@ -12,9 +12,10 @@ const Wrapper = styled.div`
     justify-items: center;
     justify-content: center;
 
-    grid-template-rows: repeat(12, 150px);
+    grid-template-rows: 50px repeat(12, 150px);
     grid-template-columns: repeat(2, 344px);
     grid-template-areas:
+      "Nav Nav"
       "Title Dev"
       "Photo Dev"
       "Photo Dev"
@@ -30,9 +31,10 @@ const Wrapper = styled.div`
   }
 
   @media screen and (min-width: 1069px) {
-    grid-template-rows: repeat(8, 150px);
+    grid-template-rows: 50px repeat(8, 150px);
     grid-template-columns: repeat(3, 344px);
     grid-template-areas:
+      "Nav Nav Nav"
       "Title Work Dev"
       "Photo Work Dev"
       "Photo Work Dev"
@@ -44,9 +46,10 @@ const Wrapper = styled.div`
   }
 
   @media screen and (min-width: 1430px) {
-    grid-template-rows: repeat(6, 150px);
+    grid-template-rows: 50px repeat(6, 150px);
     grid-template-columns: repeat(4, 344px);
     grid-template-areas:
+      "Nav Nav Nav Nav"
       "Title Work Dev About"
       "Photo Work Dev About"
       "Photo Work Dev About"

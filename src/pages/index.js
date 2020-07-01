@@ -13,9 +13,8 @@ import Title from "../components/Title";
 import Work from "../components/Work";
 import Head from "../global-components/Head";
 import Layout from "../global-components/Layout";
+import Nav from "../global-components/Nav";
 import Grid from "../single-components/Grid";
-import LanguageSwitch from "../single-components/LanguageSwitch";
-import { Container } from "../style/Mixins";
 // =========================
 
 export const LangContext = React.createContext(null);
@@ -28,21 +27,19 @@ export default function Index({ data, pageContext, path }) {
       <Head title="Roland Branten" />
       <LangContext.Provider value={lang}>
         <Layout pageContext={pageContext} path={path}>
-          <Container>
-            <LanguageSwitch />
-            <Grid>
-              <Title content={data.sanityRoland.title} />
-              <Photo content={data.sanityRoland.image.asset.fluid} />
-              <Work content={data.sanityWorkOrder.projects} />
-              <Dev content={data.sanityTechOrder.development} />
-              <About content={data.sanityRoland._rawAboutShort[lang]} />
-              <Design content={data.sanityTechOrder.design} />
-              <Education content={data.sanityRoland.education} />
-              <SideProjects content={data.sanityWorkOrder.SideProjects} />
-              <Contact content={data.sanityRoland.contact} />
-              <Language />
-            </Grid>
-          </Container>
+          <Grid>
+            <Nav />
+            <Title content={data.sanityRoland.title} />
+            <Photo content={data.sanityRoland.image.asset.fluid} />
+            <Work content={data.sanityWorkOrder.projects} />
+            <Dev content={data.sanityTechOrder.development} />
+            <About content={data.sanityRoland._rawAboutShort[lang]} />
+            <Design content={data.sanityTechOrder.design} />
+            <Education content={data.sanityRoland.education} />
+            <SideProjects content={data.sanityWorkOrder.SideProjects} />
+            <Contact content={data.sanityRoland.contact} />
+            <Language />
+          </Grid>
         </Layout>
       </LangContext.Provider>
     </>
