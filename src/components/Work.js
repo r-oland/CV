@@ -62,7 +62,8 @@ const Bar = styled.div`
 `;
 
 const Button = styled(motion.a)`
-  display: table;
+  display: block;
+  width: 120px;
   background: ${({ theme: { primary } }) => primary};
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   padding: ${({ theme: { spacing } }) => `${spacing[0]} ${spacing[2]}`};

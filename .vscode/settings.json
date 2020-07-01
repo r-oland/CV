@@ -4,14 +4,15 @@
     "icon": true,
     "node_modules": true,
     "public": true,
-    // ".env": true,
+    ".env": true,
     ".gitignore": true,
     "desktop.ini": true,
     "gatsby-config.js": true,
     "gatsby-node.js": true,
     "package-lock.json": true,
     "package.json": true,
-    "jsconfig.json": true
+    "jsconfig.json": true,
+    ".netlify": true
   },
 
   "files.associations": {

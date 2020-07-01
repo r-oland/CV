@@ -26,9 +26,10 @@ export default function PdfConverter() {
     setLoadingState("Generating Pdf...");
     console.log("click");
 
-    try {
-      fetch("/.netlify/functions/convertToPdf").then((data) =>
-        data.json().then((r) => {
+    fetch("/.netlify/functions/convertToPdf").then((data) =>
+      data
+        .json()
+        .then((r) => {
           setLoadingState("Download page");
 
           const file = r.Files[0].Url;
@@ -50,10 +51,8 @@ export default function PdfConverter() {
           window.URL.revokeObjectURL(a.href);
           document.body.removeChild(a);
         })
-      );
-    } catch {
-      setLoadingState("Failed");
-    }
+        .catch(() => setLoadingState("Failed"))
+    );
   };
 
   return (
