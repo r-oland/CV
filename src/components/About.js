@@ -36,7 +36,7 @@ export default function About({ content }) {
     <Wrapper color="white" gridArea="About">
       <Title>{title}</Title>
       <TextWrapper>
-        <BlockContent blocks={content} serializers={serializers} />,
+        <BlockContent blocks={content} serializers={serializers} />
       </TextWrapper>
     </Wrapper>
   );
