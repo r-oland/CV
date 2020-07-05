@@ -87,7 +87,7 @@ export default function Work({ content }) {
             </a>
             <div />
             <a
-              href={`https://rolandbranten.nl/work#${e.name}`}
+              href={`https://rolandbranten.nl/work#${e.url}`}
               target="_blank"
               rel="noopener noreferrer"
             >
